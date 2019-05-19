@@ -7,6 +7,6 @@
 Deque  Vect */
 
 int main(int argc, char *argv[]){
-   // Deque <int> intDeq(5);
+    Deque <int> intDeq;
     return 0;
 }
