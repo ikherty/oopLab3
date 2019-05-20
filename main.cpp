@@ -7,6 +7,12 @@
 Deque  Vect */
 
 int main(int argc, char *argv[]){
-    Deque <int> intDeq;
+    Deque <int> intDeq(3);
+    Deque <double> doubleDeq;
+    Deque <std::string> stringDeq;
+    intDeq.AddL();
+    intDeq.OutputR();
+    doubleDeq.Creation();
+    stringDeq.Full();
     return 0;
 }

@@ -15,15 +15,15 @@ private:
 public:
     Deque(int sizeDeq);
     Deque();
-    void Creation(Deque *D); //создание дека
-    bool Full(Deque *D); //проверка дека на пустоту
-    void AddL(Deque *D); //добавление элемента в начало
-    void AddR(Deque *D); //добавление элемента в конец
-    void DeleteL(Deque *D); //удаление первого элемента
-    void DeleteR(Deque *D); //удаление последнего элемента
-    int OutputL(Deque *D); //вывод первого элемента
-    int OutputR(Deque *D); //вывод последнего элемента
-    int Size(Deque *D); //размер дека
+    void Creation(); //создание дека
+    bool Full(); //проверка дека на пустоту
+    void AddL(); //добавление элемента в начало
+    void AddR(); //добавление элемента в конец
+    void DeleteL(); //удаление первого элемента
+    void DeleteR(); //удаление последнего элемента
+    int OutputL(); //вывод первого элемента
+    int OutputR(); //вывод последнего элемента
+    int Size(); //размер дека
 };
 
 template <typename Type>
@@ -44,72 +44,73 @@ template <typename Type>
 Deque<Type>::Deque(){}
 
 template <typename Type>
-void Deque<Type>::Creation(Deque *Dec){
-    Dec->last=0;
+void Deque<Type>::Creation(){
+    last=0;
 }
 template <typename Type>
-bool Deque<Type>::Full(Deque *Dec){
-if (Dec->last==0) return true;
-else return false;
+bool Deque<Type>::Full(){
+if (last==0)
+    return true;
+else
+    return false;
 }
 template <typename Type>
-void Deque<Type>::AddL(Deque *Dec)
+void Deque<Type>::AddL()
 {
-if (Dec->last==sizeDeq){
+if (last==sizeDeq){
     cout<<"\nДек заполнен\n\n";
     return;
 }
 int value;
 cout<<"\nЗначение > ";
 cin>>value;
-for (int i=Dec->last; i>0; i--)
-    Dec->data[i]=Dec->data[i-1];
-Dec->data[0]=value;
-Dec->last++;
+for (int i=last; i>0; i--)
+    data[i]=data[i-1];
+data[0]=value;
+last++;
 cout<<endl<<"Элемент добавлен\n\n";
 }
 
 template <typename Type>
-void Deque<Type>::AddR(Deque *Dec)
+void Deque<Type>::AddR()
 {
-if (Dec->last==sizeDeq){
+if (last==sizeDeq){
     cout<<"\nДек заполнен\n\n";
     return;
 }
 int value;
 cout<<"\nЗначение > ";
 cin>>value;
-Dec->data[Dec->last++]=value;
+data[last++]=value;
 cout<<endl<<"Элемент добавлен\n\n";
 }
 
 template <typename Type>
-void Deque<Type>::DeleteL(Deque *Dec)
+void Deque<Type>::DeleteL()
 {
-for (int i=0; i<Dec->last; i++)
-    Dec->data[i]=Dec->data[i+1];
-Dec->last--;
+for (int i=0; i<last; i++)
+    data[i]=data[i+1];
+last--;
 }
 
 template <typename Type>
-void Deque<Type>::DeleteR(Deque *Dec){
-    Dec->last--;
+void Deque<Type>::DeleteR(){
+    last--;
 }
 
 template <typename Type>
-int Deque<Type>::OutputL(Deque *Dec){
-    return Dec->data[0];
+int Deque<Type>::OutputL(){
+    return data[0];
 }
 
 template <typename Type>
-int Deque<Type>::OutputR(Deque *Dec){
-    return Dec->data[Dec->last-1];
+int Deque<Type>::OutputR(){
+    return data[last-1];
 }
 
 template <typename Type>
-int Deque<Type>::Size(Deque *Dec){
-    return Dec->last;
+int Deque<Type>::Size(){
+    return last;
 }
-
 
 #endif // DEQUE_H
