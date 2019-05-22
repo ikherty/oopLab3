@@ -7,12 +7,17 @@
 Deque  Vect */
 
 int main(int argc, char *argv[]){
+    cout<<"Сздание очередей типов int, double, string. Инициализация."<<endl;
     Deque <int> intDeq(3);
     Deque <double> doubleDeq;
-    Deque <std::string> stringDeq;
-    intDeq.AddL();
-    intDeq.OutputR();
-    doubleDeq.Creation();
-    stringDeq.Full();
+    Deque <std::string> stringDeq(5);
+    intDeq.AddFirst();
+    cout<<"INT очередь:";
+    intDeq.Size();
+    doubleDeq.Full();
+    doubleDeq.AddFirst();
+    doubleDeq.AddLast();
+    stringDeq.DeleteFirst();
+    stringDeq.OutputLast();
     return 0;
 }

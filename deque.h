@@ -15,14 +15,13 @@ private:
 public:
     Deque(int sizeDeq);
     Deque();
-    void Creation(); //создание дека
     bool Full(); //проверка дека на пустоту
-    void AddL(); //добавление элемента в начало
-    void AddR(); //добавление элемента в конец
-    void DeleteL(); //удаление первого элемента
-    void DeleteR(); //удаление последнего элемента
-    int OutputL(); //вывод первого элемента
-    int OutputR(); //вывод последнего элемента
+    void AddFirst(); //добавление элемента в начало
+    void AddLast(); //добавление элемента в конец
+    void DeleteFirst(); //удаление первого элемента
+    void DeleteLast(); //удаление последнего элемента
+    int OutputFirst(); //вывод первого элемента
+    int OutputLast(); //вывод последнего элемента
     int Size(); //размер дека
 };
 
@@ -44,18 +43,14 @@ template <typename Type>
 Deque<Type>::Deque(){}
 
 template <typename Type>
-void Deque<Type>::Creation(){
-    last=0;
-}
-template <typename Type>
 bool Deque<Type>::Full(){
-if (last==0)
+if(last==0)
     return true;
 else
     return false;
 }
 template <typename Type>
-void Deque<Type>::AddL()
+void Deque<Type>::AddFirst()
 {
 if (last==sizeDeq){
     cout<<"\nДек заполнен\n\n";
@@ -72,7 +67,7 @@ cout<<endl<<"Элемент добавлен\n\n";
 }
 
 template <typename Type>
-void Deque<Type>::AddR()
+void Deque<Type>::AddLast()
 {
 if (last==sizeDeq){
     cout<<"\nДек заполнен\n\n";
@@ -86,7 +81,7 @@ cout<<endl<<"Элемент добавлен\n\n";
 }
 
 template <typename Type>
-void Deque<Type>::DeleteL()
+void Deque<Type>::DeleteFirst()
 {
 for (int i=0; i<last; i++)
     data[i]=data[i+1];
@@ -94,23 +89,26 @@ last--;
 }
 
 template <typename Type>
-void Deque<Type>::DeleteR(){
+void Deque<Type>::DeleteLast(){
     last--;
 }
 
 template <typename Type>
-int Deque<Type>::OutputL(){
+int Deque<Type>::OutputFirst(){
     return data[0];
 }
 
 template <typename Type>
-int Deque<Type>::OutputR(){
+int Deque<Type>::OutputLast(){
     return data[last-1];
 }
 
 template <typename Type>
 int Deque<Type>::Size(){
-    return last;
+    if(data.empty())
+         cout<<"Empty!/n";
+    for (int ix=0; ix<data.size(); ++ix )
+        cout<<data[ix]<<' ';
 }
 
 #endif // DEQUE_H
